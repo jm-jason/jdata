@@ -7,8 +7,15 @@ jdata-example
   参考示例
 # 简介
 ## 版本：0.1.1.beta
+## 1. 枚举介绍
+### JIgnore
+    分表支持注解，目前仅支持按照时间分表
+    NONE    ： 不分表
+    DAY     ： 按天分表
+    MONTH   ： 按月分表
+    YEAR    ： 按年分表
 
-## 1. 注解介绍
+## 2. 注解介绍
 
 ### JEntity
     表映射注解
@@ -21,10 +28,10 @@ jdata-example
            作用：  指定mysql的数据库表名
     spilt
             默认值：JSplit.NONE
-            作用： 分表参数，参考JSplit 注解。
+            作用： 分表参数，参考JSplit 枚举。
 
-### JIgnore
-    分表支持注解，目前仅支持按照时间分表
+
+
 
 
 
