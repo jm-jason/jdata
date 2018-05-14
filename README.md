@@ -12,20 +12,23 @@ jdata-example
 
 
 POM引入 ：
-  <dependency>
-            <groupId>com.jdata</groupId>
-            <artifactId>jdata-core</artifactId>
-            <version>0.1.0-beta</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-parent</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+
+```xml
+    <dependency>
+        <groupId>com.jdata</groupId>
+        <artifactId>jdata-core</artifactId>
+        <version>0.1.0-beta</version>
+        <exclusions>
+            <exclusion>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-parent</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+```
 
 
