@@ -1,7 +1,8 @@
 # jdata项目介绍
 
+    暂时适用于springboot 构建的项目。
 jdata-core 模块
-  一个 基于SpringJdbc封装的工具组件包
+  一个 基于SpringJdbc封装的工具组件包。
 
 jdata-example
   参考示例
@@ -63,6 +64,11 @@ jdata-example
 
 
 POM引入 ：
+
+引入时候建议移除
+    spring-boot-parent
+    spring-boot-web
+
 
 ```xml
     <dependency>
