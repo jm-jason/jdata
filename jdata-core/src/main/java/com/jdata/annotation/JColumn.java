@@ -37,7 +37,7 @@ public @interface JColumn {
      * 要求 不要创建字段 ！
      * @return
      */
-    boolean notCreate() default false;
+    //boolean notCreate() default false;
 
 
     /**
