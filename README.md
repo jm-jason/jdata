@@ -19,18 +19,39 @@ jdata-example
 
 ### JEntity
     表映射注解
-    dataSource
+    dataSource string
             默认值：无
             作用： 多数据源时候，指定特定的数据源
 
-    name
+    name        string
            默认值：无
            作用：  指定mysql的数据库表名
-    spilt
+    spilt       JIgnore枚举
             默认值：JSplit.NONE
             作用： 分表参数，参考JSplit 枚举。
 
 
+### JColumn
+    字段映射注解
+    pk      boolean
+        默认值： false
+        作用：   建立主键）
+    length  int
+        默认值：   64
+        作用：     映射数据库字段长度
+
+    index   boolean
+        默认值： false
+        作用：   建立索引
+
+
+    nullable  boolean
+        默认值：false
+        作用： 是否允许空
+
+    unique    boolean
+        默认值：false
+        作用： 建立唯一值索引
 
 
 
@@ -47,7 +68,7 @@ POM引入 ：
     <dependency>
         <groupId>com.jdata</groupId>
         <artifactId>jdata-core</artifactId>
-        <version>0.1.0-beta</version>
+        <version>0.1.1-beta</version>
         <exclusions>
             <exclusion>
                 <groupId>org.springframework.boot</groupId>
