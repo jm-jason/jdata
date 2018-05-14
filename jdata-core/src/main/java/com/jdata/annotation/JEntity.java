@@ -24,13 +24,13 @@ public @interface JEntity {
      * 索引 ，默认 无
      * @return
      */
-    String index() default "" ;
+    //String index() default "" ;
 
     /**
      * 唯一值索引
      * @return
      */
-    String uniqueIndex() default "";
+    //String uniqueIndex() default "";
 
     JSplit spilt() default JSplit.NONE;
 
