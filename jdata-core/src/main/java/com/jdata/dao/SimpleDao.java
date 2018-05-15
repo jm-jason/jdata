@@ -11,8 +11,12 @@ import com.jdata.util.JClassUtil;
 import com.jdata.util.JEntityUtil;
 import com.jdata.util.JPageUtil;
 import com.jdata.util.ObjectUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -20,16 +24,21 @@ import java.util.Map;
 /**
  * 简单基础Dao
  */
-public class SimpleDao<T extends JSimpleEntity>  {
+public  class SimpleDao<T extends JSimpleEntity>  {
 
+    private JdbcTemplate jdbcTemplate;
 
-    JdbcTemplate jdbcTemplate ;
     public SimpleDao(JdbcTemplate jdbcTemplate){
         this.jdbcTemplate = jdbcTemplate;
     }
 
-
-    public Map findOneMapById(Class<T> cls ,String id){
+    /**
+     * 返回一个Map
+     * @param cls
+     * @param id
+     * @return
+     */
+    public Map findMapById(Class<T> cls ,String id){
         String table = JEntityUtil.getTableName(cls,null);
         StringBuffer sql = new StringBuffer("select * from " ).append(table).append(" where id = ?");
         Map map = jdbcTemplate.queryForMap(sql.toString(),id);
@@ -58,9 +67,11 @@ public class SimpleDao<T extends JSimpleEntity>  {
 
     /**
      * 获得 全部数据
+     *  不建议使用，会返回所有的数据，全表的！！！！
      * @param cls
      * @return
      */
+    @Deprecated
     public List<Object> findAll(Class<T> cls ) {
         StringBuffer stringBuffer = new StringBuffer("select * from  ").append(JEntityUtil.getTableName(cls,null));
         List<Map<String,Object>> list = jdbcTemplate.queryForList(stringBuffer.toString()) ;
@@ -190,6 +201,11 @@ public class SimpleDao<T extends JSimpleEntity>  {
     }
 
 
+    /**
+     * 批量插入
+     * @param list
+     * @return
+     */
     public JWriteResult batchInsert(List<T> list ){
         JSqlBuilder sqlBuilder = new JSqlBuilder(list.get(0).getClass(),null);
         JSQLQuery sqlQuery = sqlBuilder.batchInsertSQL(list,null);
